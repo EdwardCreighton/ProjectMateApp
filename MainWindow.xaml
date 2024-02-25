@@ -4,9 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectMateApp"
+        xmlns:views="clr-namespace:ProjectMateApp.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="STP Data Base"
+        MinWidth="800"
+        MinHeight="450"
+        Height="450"
+        Width="800">
+    <Grid Margin="20">
+        <views:ListingView />
     </Grid>
 </Window>
