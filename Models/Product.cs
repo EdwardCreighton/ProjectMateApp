@@ -1,6 +1,6 @@
 ﻿namespace ProjectMateApp.Models
 {
-    internal class Product
+    public class Product
     {
         public string Name { get; }
         public float Price { get; }

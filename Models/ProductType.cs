@@ -1,6 +1,6 @@
 ﻿namespace ProjectMateApp.Models
 {
-    internal enum ProductType
+    public enum ProductType
     {
         Subscription,
         PermanentLicense

@@ -1,6 +1,6 @@
 ﻿namespace ProjectMateApp.Models
 {
-    internal class Manager
+    public class Manager
     {
         public string Name { get; }
 

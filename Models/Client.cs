@@ -1,6 +1,6 @@
 ﻿namespace ProjectMateApp.Models
 {
-    internal class Client
+    public class Client
     {
         public string Name { get; }
         public ClientStatus Status { get; }

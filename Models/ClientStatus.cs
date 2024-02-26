@@ -1,6 +1,6 @@
 ﻿namespace ProjectMateApp.Models
 {
-    internal enum ClientStatus
+    public enum ClientStatus
     {
         DefaultClient,
         ImportantClient
