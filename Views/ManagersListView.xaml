@@ -10,6 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <Label
@@ -49,5 +50,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <Button
+            Grid.Row="2"
+            Content="Create New Manager"
+            Style="{StaticResource AddNewItem Button}"/>
     </Grid>
 </UserControl>

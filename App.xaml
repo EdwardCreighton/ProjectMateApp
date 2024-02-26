@@ -8,5 +8,10 @@
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
         </Style>
+        <Style TargetType="Button" x:Key="AddNewItem Button">
+            <Setter Property="Padding" Value="2 2 2 2"/>
+            <Setter Property="Margin" Value="2 2 0 2"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
     </Application.Resources>
 </Application>
