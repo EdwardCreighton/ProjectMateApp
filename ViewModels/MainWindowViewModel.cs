@@ -1,6 +1,4 @@
-﻿using ProjectMateApp.Views;
-
-namespace ProjectMateApp.ViewModels
+﻿namespace ProjectMateApp.ViewModels
 {
     class MainWindowViewModel : BaseViewModel
     {
