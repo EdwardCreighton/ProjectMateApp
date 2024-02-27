@@ -31,7 +31,8 @@
             <Button Content="Status-Clients" Style="{StaticResource Header}"/>
         </StackPanel>
 
-        <local:ManagerToClientsListView
+        <local:ManagersListView
+            DataContext="{Binding CurrentViewModel}"
             Grid.Row="1"
             Margin="0 10 0 10"/>
     </Grid>

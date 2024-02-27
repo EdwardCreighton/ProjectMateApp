@@ -12,6 +12,6 @@
         Height="450"
         Width="800">
     <Grid Margin="20">
-        <views:ListingView />
+        <views:ListingView DataContext="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

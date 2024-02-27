@@ -18,12 +18,7 @@
             Content="Managers List"
             Style="{StaticResource List Header}"/>
 
-        <ListView Grid.Row="1">
-            <ListViewItem/>
-            <ListViewItem/>
-            <ListViewItem/>
-            <ListViewItem/>
-
+        <ListView Grid.Row="1" ItemsSource="{Binding Managers}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -35,7 +30,7 @@
                     <GridViewColumn Header="Name" Width="200">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="Иванов Иван Иванович"/>
+                                <TextBlock Text="{Binding Name}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -43,7 +38,7 @@
                     <GridViewColumn Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Edit" MinWidth="80"/>
+                                <Button Content="Edit" MinWidth="80" Command="{Binding EditManagerCommand}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
