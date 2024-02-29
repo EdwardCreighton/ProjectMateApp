@@ -1,5 +1,5 @@
 ﻿using ProjectMateApp.Commands;
-using ProjectMateApp.Stores;
+using ProjectMateApp.Services;
 using System.Windows.Input;
 
 namespace ProjectMateApp.ViewModels
@@ -8,9 +8,9 @@ namespace ProjectMateApp.ViewModels
     {
         public ICommand Cancel { get; }
 
-        public CreateManagerViewModel(NavigationStore navigationStore, Func<BaseViewModel> createListingViewModel)
+        public CreateManagerViewModel(NavigationService toListingNavigationService)
         {
-            Cancel = new NavigateCommand(navigationStore, createListingViewModel);
+            Cancel = new NavigateCommand(toListingNavigationService);
         }
     }
 }

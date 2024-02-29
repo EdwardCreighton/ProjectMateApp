@@ -1,4 +1,5 @@
-﻿using ProjectMateApp.Stores;
+﻿using ProjectMateApp.Services;
+using ProjectMateApp.Stores;
 using ProjectMateApp.ViewModels;
 using System.Windows;
 
@@ -32,12 +33,12 @@ namespace ProjectMateApp
 
         private CreateManagerViewModel CreateManagerViewModel()
         {
-            return new CreateManagerViewModel(_navigationStore, ListingViewModel);
+            return new CreateManagerViewModel(new NavigationService(_navigationStore, ListingViewModel));
         }
 
         private ListingViewModel ListingViewModel()
         {
-            return new ListingViewModel(_navigationStore, CreateManagerViewModel);
+            return new ListingViewModel(new NavigationService(_navigationStore, CreateManagerViewModel));
         }
     }
 }

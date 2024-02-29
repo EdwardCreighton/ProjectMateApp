@@ -1,5 +1,5 @@
 ﻿using ProjectMateApp.Commands;
-using ProjectMateApp.Stores;
+using ProjectMateApp.Services;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -13,11 +13,11 @@ namespace ProjectMateApp.ViewModels
 
         public ICommand CreateManager { get; }
 
-        public ManagersListViewModel(NavigationStore navigationStore, Func<CreateManagerViewModel> createManagerViewModel)
+        public ManagersListViewModel(NavigationService toCreateManagerNavigationService)
         {
             _managers = new ObservableCollection<ManagerViewModel>();
 
-            CreateManager = new NavigateCommand(navigationStore, createManagerViewModel);
+            CreateManager = new NavigateCommand(toCreateManagerNavigationService);
         }
     }
 }

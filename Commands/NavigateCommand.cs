@@ -1,22 +1,19 @@
-﻿using ProjectMateApp.Stores;
-using ProjectMateApp.ViewModels;
+﻿using ProjectMateApp.Services;
 
 namespace ProjectMateApp.Commands
 {
     public class NavigateCommand : BaseCommand
     {
-        private readonly NavigationStore _navigationStore;
-        private readonly Func<BaseViewModel> _createViewModel;
+        private readonly NavigationService _navigationService;
 
-        public NavigateCommand(NavigationStore navigationStore, Func<BaseViewModel> createViewModel)
+        public NavigateCommand(NavigationService navigationService)
         {
-            _navigationStore = navigationStore;
-            _createViewModel = createViewModel;
+            _navigationService = navigationService;
         }
 
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = _createViewModel.Invoke();
+            _navigationService.Navigate();
         }
     }
 }
