@@ -1,12 +1,16 @@
-﻿namespace ProjectMateApp.ViewModels
+﻿using ProjectMateApp.Stores;
+
+namespace ProjectMateApp.ViewModels
 {
     class MainWindowViewModel : BaseViewModel
     {
-        public BaseViewModel CurrentViewModel { get; }
+        private readonly NavigationStore _navigationStore;
 
-        public MainWindowViewModel()
+        public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
+
+        public MainWindowViewModel(NavigationStore navigationStore)
         {
-            CurrentViewModel = new ListingViewModel();
+            _navigationStore = navigationStore;
         }
     }
 }

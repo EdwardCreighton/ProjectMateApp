@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectMateApp"
         xmlns:views="clr-namespace:ProjectMateApp.Views"
+        xmlns:viewModels="clr-namespace:ProjectMateApp.ViewModels"
         mc:Ignorable="d"
         Title="STP Data Base"
         MinWidth="800"
@@ -12,6 +13,16 @@
         Height="450"
         Width="800">
     <Grid Margin="20">
-        <views:ListingView DataContext="{Binding CurrentViewModel}"/>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type viewModels:ListingViewModel}">
+                <views:ListingView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModels:CreateClientViewModel}">
+                <views:CreateClientView/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>
