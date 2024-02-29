@@ -6,14 +6,6 @@
              xmlns:local="clr-namespace:ProjectMateApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <Style TargetType="Button" x:Key="Header">
-            <Setter Property="Padding" Value="0 2 0 2"/>
-            <Setter Property="Margin" Value="0 0 10 0"/>
-            <Setter Property="Width" Value="110"/>
-        </Style>
-    </UserControl.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
