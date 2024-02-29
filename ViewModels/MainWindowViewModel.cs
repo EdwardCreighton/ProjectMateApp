@@ -11,6 +11,13 @@ namespace ProjectMateApp.ViewModels
         public MainWindowViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
+
+            navigationStore.CurrentViewModelChanged += CurrentViewModelChanged;
+        }
+
+        private void CurrentViewModelChanged()
+        {
+            OnPropertyChanged(nameof(CurrentViewModel));
         }
     }
 }

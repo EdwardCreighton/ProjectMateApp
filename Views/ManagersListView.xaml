@@ -49,6 +49,7 @@
         <Button
             Grid.Row="2"
             Content="Create New Manager"
-            Style="{StaticResource AddNewItem Button}"/>
+            Style="{StaticResource AddNewItem Button}"
+            Command="{Binding CreateManager}"/>
     </Grid>
 </UserControl>

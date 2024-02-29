@@ -1,4 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using ProjectMateApp.Commands;
+using ProjectMateApp.Stores;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace ProjectMateApp.ViewModels
 {
@@ -8,9 +11,13 @@ namespace ProjectMateApp.ViewModels
 
         public IEnumerable<ManagerViewModel> Managers => _managers;
 
-        public ManagersListViewModel()
+        public ICommand CreateManager { get; }
+
+        public ManagersListViewModel(NavigationStore navigationStore, Func<CreateManagerViewModel> createManagerViewModel)
         {
             _managers = new ObservableCollection<ManagerViewModel>();
+
+            CreateManager = new NavigateCommand(navigationStore, createManagerViewModel);
         }
     }
 }

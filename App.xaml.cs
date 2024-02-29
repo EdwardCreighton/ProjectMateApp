@@ -18,7 +18,7 @@ namespace ProjectMateApp
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            _navigationStore.CurrentViewModel = new ListingViewModel();
+            _navigationStore.CurrentViewModel = ListingViewModel();
 
             MainWindow = new MainWindow()
             {
@@ -28,6 +28,16 @@ namespace ProjectMateApp
             MainWindow.Show();
 
             base.OnStartup(e);
+        }
+
+        private CreateManagerViewModel CreateManagerViewModel()
+        {
+            return new CreateManagerViewModel(_navigationStore, ListingViewModel);
+        }
+
+        private ListingViewModel ListingViewModel()
+        {
+            return new ListingViewModel(_navigationStore, CreateManagerViewModel);
         }
     }
 }

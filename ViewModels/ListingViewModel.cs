@@ -1,4 +1,6 @@
-﻿namespace ProjectMateApp.ViewModels
+﻿using ProjectMateApp.Stores;
+
+namespace ProjectMateApp.ViewModels
 {
     public class ListingViewModel : BaseViewModel
     {
@@ -16,9 +18,9 @@
         public ClientToProductsListViewModel ClientToProductsListViewModel => _clientToProductsListViewModel;
         public StatusToClientsListViewModel StatusToClientsListViewModel => _statusToClientsListViewModel;
 
-        public ListingViewModel()
+        public ListingViewModel(NavigationStore navigationStore, Func<CreateManagerViewModel> createManagerViewModel)
         {
-            _managersListViewModel = new ManagersListViewModel();
+            _managersListViewModel = new ManagersListViewModel(navigationStore, createManagerViewModel);
             _clientsListViewModel = new ClientsListViewModel();
             _productsListViewModel = new ProductsListViewModel();
             _managerToClientsListViewModel = new ManagerToClientsListViewModel();
