@@ -11,11 +11,6 @@ namespace ProjectMateApp.ViewModels
         public ManagersListViewModel()
         {
             _managers = new ObservableCollection<ManagerViewModel>();
-
-            _managers.Add(new ManagerViewModel(new Models.Manager("John Stachelzky")));
-            _managers.Add(new ManagerViewModel(new Models.Manager("Frederic Buckovich")));
-            _managers.Add(new ManagerViewModel(new Models.Manager("Aster Vil-Usov")));
-            _managers.Add(new ManagerViewModel(new Models.Manager("Frensis Dormut")));
         }
     }
 }

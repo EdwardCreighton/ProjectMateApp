@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectMateApp.Views"
-             xmlns:viewModels="clr-namespace:ProjectMateApp.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -13,32 +12,38 @@
             <Setter Property="Margin" Value="0 0 10 0"/>
             <Setter Property="Width" Value="110"/>
         </Style>
-        
-        <DataTemplate DataType="{x:Type viewModels:ManagersListViewModel}">
-            <local:ManagersListView/>
-        </DataTemplate>
     </UserControl.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel
-            Grid.Row="0"
-            Orientation="Horizontal">
-            <Button Content="Managers" Style="{StaticResource Header}"/>
-            <Button Content="Products" Style="{StaticResource Header}"/>
-            <Button Content="Clients" Style="{StaticResource Header}"/>
-            <Button Content="Manager-Clients" Style="{StaticResource Header}"/>
-            <Button Content="Client-Products" Style="{StaticResource Header}"/>
-            <Button Content="Status-Clients" Style="{StaticResource Header}"/>
-        </StackPanel>
+        <TabControl
+            Grid.Row="0">
+            <TabItem Header="Managers">
+                <local:ManagersListView DataContext="{Binding ManagersListViewModel}"/>
+            </TabItem>
 
-        <ContentControl
-            Content="{Binding CurrentViewModel}"
-            Grid.Row="1"
-            Margin="0 10 0 10"/>
+            <TabItem Header="Clients">
+                <local:ClientsListView DataContext="{Binding ClientsListViewModel}"/>
+            </TabItem>
+
+            <TabItem Header="Products">
+                <local:ProductsListView DataContext="{Binding ProductsListViewModel}"/>
+            </TabItem>
+
+            <TabItem Header="Manager-Clients">
+                <local:ManagerToClientsListView DataContext="{Binding ManagerToClientsListViewModel}"/>
+            </TabItem>
+
+            <TabItem Header="Client-Products">
+                <local:ClientToProductsListView DataContext="{Binding ClientToProductsListViewModel}"/>
+            </TabItem>
+
+            <TabItem Header="Status-Clients">
+                <local:StatusToClientListView DataContext="{Binding StatusToClientsListViewModel}"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </UserControl>

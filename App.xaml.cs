@@ -9,23 +9,20 @@ namespace ProjectMateApp
     /// </summary>
     public partial class App : Application
     {
-        private readonly NavigationStore _mainWindowNavigationStore;
-        private readonly NavigationStore _listingNavigationStore;
+        private readonly NavigationStore _navigationStore;
 
         public App()
         {
-            _mainWindowNavigationStore = new NavigationStore();
-            _listingNavigationStore = new NavigationStore();
+            _navigationStore = new NavigationStore();
         }
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            _mainWindowNavigationStore.CurrentViewModel = new ListingViewModel(_listingNavigationStore);
-            _listingNavigationStore.CurrentViewModel = new ManagersListViewModel();
+            _navigationStore.CurrentViewModel = new ListingViewModel();
 
             MainWindow = new MainWindow()
             {
-                DataContext = new MainWindowViewModel(_mainWindowNavigationStore)
+                DataContext = new MainWindowViewModel(_navigationStore)
             };
 
             MainWindow.Show();
