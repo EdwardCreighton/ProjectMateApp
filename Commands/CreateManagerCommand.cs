@@ -1,6 +1,7 @@
 ﻿using ProjectMateApp.Exceptions;
 using ProjectMateApp.Models;
 using ProjectMateApp.Services;
+using ProjectMateApp.Utils;
 using ProjectMateApp.ViewModels;
 using System.Windows;
 
@@ -31,18 +32,24 @@ namespace ProjectMateApp.Commands
         public override void Execute(object? parameter)
         {
             string name = Manager.JoinName(_createManagerViewModel.FirstName, _createManagerViewModel.Surname, _createManagerViewModel.LastName);
-
+            
             try
             {
+                NameValidator.Validate(name);
+
                 _dataBase.AddManager(new Manager(name));
 
-                MessageBox.Show("Successfully added new manager", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Successfully added new manager.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 _toListingNavigationService.Navigate();
             }
             catch (ManagerAlreadyExistsException)
             {
-                MessageBox.Show("Manager already exists", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Manager already exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (NameContainsNumbersException)
+            {
+                MessageBox.Show("Name can not contain numbers.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
