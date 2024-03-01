@@ -13,7 +13,7 @@
         {
             fn.Trim();
             sn.Trim();
-            ln.Trim();
+            ln?.Trim();
 
             return $"{fn} {sn} {ln}";
         }
