@@ -1,5 +1,4 @@
-﻿
-namespace ProjectMateApp.Models
+﻿namespace ProjectMateApp.Models
 {
     public class Manager
     {
@@ -12,7 +11,11 @@ namespace ProjectMateApp.Models
 
         public static string JoinName(string fn, string sn, string ln)
         {
-            return fn + " " + sn + " " + ln;
+            fn.Trim();
+            sn.Trim();
+            ln.Trim();
+
+            return $"{fn} {sn} {ln}";
         }
 
         public static void SeparateName(string name, out string fn, out string sn, out string ln)
