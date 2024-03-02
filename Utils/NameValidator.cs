@@ -9,9 +9,9 @@ namespace ProjectMateApp.Utils
 
         public static void Validate(string name)
         {
-            MatchCollection matches = NumbersRegex.Matches(name);
+            MatchCollection numbersMatches = NumbersRegex.Matches(name);
 
-            if (matches.Count > 0)
+            if (numbersMatches.Count > 0)
                 throw new NameContainsNumbersException();
         }
     }
