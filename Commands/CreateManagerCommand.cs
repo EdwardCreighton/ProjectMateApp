@@ -13,7 +13,9 @@ namespace ProjectMateApp.Commands
         private readonly IDataBase _dataBase;
         private readonly CreateManagerViewModel _createManagerViewModel;
 
-        public CreateManagerCommand(NavigationService toListingNavigationService, IDataBase dataBase, CreateManagerViewModel createManagerViewModel)
+        public CreateManagerCommand(NavigationService toListingNavigationService,
+                                    IDataBase dataBase,
+                                    CreateManagerViewModel createManagerViewModel)
         {
             _toListingNavigationService = toListingNavigationService;
             _dataBase = dataBase;

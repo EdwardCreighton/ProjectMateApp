@@ -18,11 +18,13 @@ namespace ProjectMateApp.ViewModels
         public ClientToProductsListViewModel ClientToProductsListViewModel => _clientToProductsListViewModel;
         public StatusToClientsListViewModel StatusToClientsListViewModel => _statusToClientsListViewModel;
 
-        public ListingViewModel(NavigationService toCreateManagerNavigationService, IDataBase dataBase)
+        public ListingViewModel(NavigationService toCreateManagerNavigationService,
+                                NavigationService toCreateProductNavigationService,
+                                IDataBase dataBase)
         {
             _managersListViewModel = new ManagersListViewModel(toCreateManagerNavigationService, dataBase);
             _clientsListViewModel = new ClientsListViewModel();
-            _productsListViewModel = new ProductsListViewModel();
+            _productsListViewModel = new ProductsListViewModel(toCreateProductNavigationService, dataBase);
             _managerToClientsListViewModel = new ManagerToClientsListViewModel();
             _clientToProductsListViewModel = new ClientToProductsListViewModel();
             _statusToClientsListViewModel = new StatusToClientsListViewModel();

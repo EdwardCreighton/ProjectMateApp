@@ -18,7 +18,7 @@ namespace ProjectMateApp.ViewModels
         {
             _managers = new ObservableCollection<ManagerViewModel>();
 
-            IEnumerable<Manager> dataBaseManagers = dataBase.GetManagers();
+            IEnumerable<Manager> dataBaseManagers = dataBase.Managers;
 
             foreach (Manager manager in dataBaseManagers)
             {
