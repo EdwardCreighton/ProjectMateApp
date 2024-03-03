@@ -30,7 +30,7 @@
                     <GridViewColumn Header="Name" Width="200">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Name}"/>
+                                <Label Content="{Binding Name}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
