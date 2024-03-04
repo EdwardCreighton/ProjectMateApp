@@ -1,4 +1,5 @@
-﻿namespace ProjectMateApp.Models
+﻿
+namespace ProjectMateApp.Models
 {
     public class Client
     {
@@ -13,6 +14,20 @@
             Status = status;
             Manager = manager;
             BoughtProducts = new List<Product>(0);
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj != null
+                && obj is Client client
+                && client.Name == Name
+                && client.Status == Status
+                && client.Manager == Manager;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, Status, Manager, BoughtProducts);
         }
     }
 }

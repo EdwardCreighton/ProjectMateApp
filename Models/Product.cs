@@ -18,10 +18,11 @@
         public override bool Equals(object? obj)
         {
             return obj != null
-                && ((Product)obj).Name == Name
-                && ((Product)obj).Price == Price
-                && ((Product)obj).Type == Type
-                && ((Product)obj).SubscriptionExpirationDate == SubscriptionExpirationDate;
+                && obj is Product product
+                && product.Name == Name
+                && product.Price == Price
+                && product.Type == Type
+                && product.SubscriptionExpirationDate == SubscriptionExpirationDate;
         }
 
         public override int GetHashCode()
