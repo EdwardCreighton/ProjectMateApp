@@ -33,10 +33,12 @@ namespace ProjectMateApp.Commands
 
         public override void Execute(object? parameter)
         {
-            string name = Manager.JoinName(_createManagerViewModel.FirstName, _createManagerViewModel.Surname, _createManagerViewModel.LastName);
-            
             try
             {
+                string name = NameValidator.JoinName(_createManagerViewModel.FirstName,
+                                                     _createManagerViewModel.Surname,
+                                                     _createManagerViewModel.LastName);
+
                 NameValidator.Validate(name);
 
                 _dataBase.AddManager(new Manager(name));
@@ -45,7 +47,7 @@ namespace ProjectMateApp.Commands
 
                 _toListingNavigationService.Navigate();
             }
-            catch (ManagerAlreadyExistsException)
+            catch (DataBaseElementAlreadyExistsException)
             {
                 MessageBox.Show("Manager already exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }

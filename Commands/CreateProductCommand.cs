@@ -35,7 +35,7 @@ namespace ProjectMateApp.Commands
 
                 _toListingNavigationService.Navigate();
             }
-            catch (ProductAlreadyExistsException)
+            catch (DataBaseElementAlreadyExistsException)
             {
                 MessageBox.Show("Such product already exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }            
