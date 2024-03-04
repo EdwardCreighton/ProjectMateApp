@@ -29,7 +29,7 @@
                     <GridViewColumn Header="Status" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="VIP"/>
+                                <Label Content="VIP"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -37,7 +37,7 @@
                     <GridViewColumn Header="Name" Width="200">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="Петров Петр Петрович"/>
+                                <Label Content="Петров Петр Петрович"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

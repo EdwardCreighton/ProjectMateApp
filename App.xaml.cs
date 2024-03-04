@@ -37,6 +37,7 @@ namespace ProjectMateApp
         private ListingViewModel ListingViewModel()
         {
             return new ListingViewModel(new NavigationService(_navigationStore, CreateManagerViewModel),
+                                        new NavigationService(_navigationStore, CreateClientViewModel),
                                         new NavigationService(_navigationStore, CreateProductViewModel),
                                         _dataBase);
         }
@@ -49,6 +50,11 @@ namespace ProjectMateApp
         private CreateProductViewModel CreateProductViewModel()
         {
             return new CreateProductViewModel(new NavigationService(_navigationStore, ListingViewModel), _dataBase);
+        }
+
+        private CreateClientViewModel CreateClientViewModel()
+        {
+            return new CreateClientViewModel(new NavigationService(_navigationStore, ListingViewModel), _dataBase);
         }
     }
 }

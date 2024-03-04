@@ -28,7 +28,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="250"/>
             </Grid.ColumnDefinitions>
 
@@ -61,13 +61,12 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 SelectedIndex="{Binding SelectedType}"
-                ItemsSource="{Binding AllTypes}">
-            </ComboBox>
+                ItemsSource="{Binding AllTypes}"/>
 
             <Label
                 Grid.Row="3"
                 Grid.Column="0"
-                Content="Subscription Expiration Date"
+                Content="Expiration Date"
                 Style="{StaticResource FormElement}"/>
             <DatePicker
                 Grid.Row="3"
