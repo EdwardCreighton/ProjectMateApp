@@ -80,17 +80,14 @@
             Grid.Row="2"
             Orientation="Horizontal"
             HorizontalAlignment="Left"
-            Margin="10 20 0 0">
+            Margin="40 20 0 0">
             <Button
                 Content="Create"
-                FontSize="17"
-                Margin="0 0 10 0"
-                Padding="5 0 5 0"
+                Style="{StaticResource FormButton}"
                 Command="{Binding Create}"/>
             <Button
-                FontSize="17"
                 Content="Cancel"
-                Padding="5 0 5 0"
+                Style="{StaticResource FormButton}"
                 Command="{Binding Cancel}"/>
         </StackPanel>
     </Grid>

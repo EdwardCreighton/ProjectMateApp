@@ -8,16 +8,10 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label
-        Grid.Row="0"
-        Content="Status-Clients List"
-        Style="{StaticResource List Header}"/>
-
-        <ListView Grid.Row="1">
+        <ListView Grid.Row="0">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
