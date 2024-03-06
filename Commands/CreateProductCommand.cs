@@ -19,6 +19,16 @@ namespace ProjectMateApp.Commands
             _toListingNavigationService = toListingNavigationService;
             _dataBase = dataBase;
             _createProductViewModel = createProductViewModel;
+
+            _createProductViewModel.PropertyChanged += PropertyChanged;
+        }
+
+        public override bool CanExecute(object? parameter)
+        {
+            return !string.IsNullOrEmpty(_createProductViewModel.Name)
+                && _createProductViewModel.Price > 0
+                && _createProductViewModel.SubscriptionExpirationDate > DateTime.UtcNow
+                && base.CanExecute(parameter);
         }
 
         public override void Execute(object? parameter)
@@ -39,6 +49,24 @@ namespace ProjectMateApp.Commands
             {
                 MessageBox.Show("Such product already exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }            
+        }
+
+        private void PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName ==  nameof(Product.Name))
+            {
+                OnCanExecuteChanged();
+            }
+
+            if (e.PropertyName == nameof(Product.Price))
+            {
+                OnCanExecuteChanged();
+            }
+
+            if (e.PropertyName == nameof(Product.SubscriptionExpirationDate))
+            {
+                OnCanExecuteChanged();
+            }
         }
     }
 }
