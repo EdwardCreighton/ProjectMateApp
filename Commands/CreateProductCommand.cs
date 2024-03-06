@@ -53,17 +53,17 @@ namespace ProjectMateApp.Commands
 
         private void PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if (e.PropertyName ==  nameof(Product.Name))
+            if (e.PropertyName ==  nameof(CreateProductViewModel.Name))
             {
                 OnCanExecuteChanged();
             }
 
-            if (e.PropertyName == nameof(Product.Price))
+            if (e.PropertyName == nameof(CreateProductViewModel.Price))
             {
                 OnCanExecuteChanged();
             }
 
-            if (e.PropertyName == nameof(Product.SubscriptionExpirationDate))
+            if (e.PropertyName == nameof(CreateProductViewModel.SubscriptionExpirationDate))
             {
                 OnCanExecuteChanged();
             }
