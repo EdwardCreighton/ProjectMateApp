@@ -20,6 +20,15 @@ namespace ProjectMateApp.Commands
             _toListingNavigationService = toListingNavigationService;
             _dataBase = dataBase;
             _createClientViewModel = createClientViewModel;
+
+            _createClientViewModel.PropertyChanged += PropertyChanged;
+        }
+
+        public override bool CanExecute(object? parameter)
+        {
+            return !string.IsNullOrEmpty(_createClientViewModel.FirstName)
+                && !string.IsNullOrEmpty(_createClientViewModel.Surname)
+                && base.CanExecute(parameter);
         }
 
         public override void Execute(object? parameter)
@@ -47,6 +56,19 @@ namespace ProjectMateApp.Commands
             catch (NameContainsNumbersException)
             {
                 MessageBox.Show("Name can not contain numbers.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(CreateClientViewModel.FirstName))
+            {
+                OnCanExecuteChanged();
+            }
+
+            if (e.PropertyName == nameof(_createClientViewModel.Surname))
+            {
+                OnCanExecuteChanged();
             }
         }
     }
