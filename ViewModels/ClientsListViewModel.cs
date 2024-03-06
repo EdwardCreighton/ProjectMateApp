@@ -21,7 +21,7 @@ namespace ProjectMateApp.ViewModels
                 _clients.Add(new ClientViewModel(client));
             }
 
-            CreateClient = new NavigateCommand(toCreateClientNavigationService);
+            CreateClient = new ClientsListNavigateCommand(toCreateClientNavigationService, dataBase.Managers.Count() > 0);
         }
     }
 }
