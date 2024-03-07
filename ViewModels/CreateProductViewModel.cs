@@ -45,7 +45,7 @@ namespace ProjectMateApp.ViewModels
 			set
 			{
 				_selectedType = value;
-				OnPropertyChanged(nameof(SelectedType));
+                OnPropertyChanged(nameof(SelectedType));
 			}
 		}
 
@@ -59,7 +59,7 @@ namespace ProjectMateApp.ViewModels
 			set
 			{
 				_subsciptionExpirationDate = value;
-				OnPropertyChanged(nameof(SubscriptionExpirationDate));
+                OnPropertyChanged(nameof(SubscriptionExpirationDate));
 			}
 		}
 

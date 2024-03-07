@@ -27,7 +27,8 @@ namespace ProjectMateApp.Commands
         {
             return !string.IsNullOrEmpty(_createProductViewModel.Name)
                 && _createProductViewModel.Price > 0
-                && _createProductViewModel.SubscriptionExpirationDate > DateTime.UtcNow
+                && ((ProductType)_createProductViewModel.SelectedType == ProductType.PermanentLicense
+                    || _createProductViewModel.SubscriptionExpirationDate > DateTime.UtcNow)
                 && base.CanExecute(parameter);
         }
 
@@ -53,20 +54,7 @@ namespace ProjectMateApp.Commands
 
         private void PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if (e.PropertyName ==  nameof(CreateProductViewModel.Name))
-            {
-                OnCanExecuteChanged();
-            }
-
-            if (e.PropertyName == nameof(CreateProductViewModel.Price))
-            {
-                OnCanExecuteChanged();
-            }
-
-            if (e.PropertyName == nameof(CreateProductViewModel.SubscriptionExpirationDate))
-            {
-                OnCanExecuteChanged();
-            }
+            OnCanExecuteChanged();
         }
     }
 }

@@ -73,7 +73,9 @@
                 Grid.Column="1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
+                Focusable="False"
                 SelectedDate="{Binding SubscriptionExpirationDate}"/>
+
         </Grid>
 
         <StackPanel
