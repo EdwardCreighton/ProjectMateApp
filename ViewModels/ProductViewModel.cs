@@ -19,7 +19,7 @@ namespace ProjectMateApp.ViewModels
                 };
             }
         }
-        public string SubscriptionExpirationDate => _product.SubscriptionExpirationDate.ToString("d");
+        public string SubscriptionExpirationDate => _product.Type == ProductType.Subscription ? _product.SubscriptionExpirationDate.ToString("d") : string.Empty;
 
         public ProductViewModel(Product product)
         {
