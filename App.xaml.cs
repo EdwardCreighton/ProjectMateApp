@@ -34,27 +34,29 @@ namespace ProjectMateApp
             base.OnStartup(e);
         }
 
-        private ListingViewModel ListingViewModel()
+        public ListingViewModel ListingViewModel()
         {
-            return new ListingViewModel(new NavigationService(_navigationStore, CreateManagerViewModel),
-                                        new NavigationService(_navigationStore, CreateClientViewModel),
-                                        new NavigationService(_navigationStore, CreateProductViewModel),
-                                        _dataBase);
+            return new ListingViewModel(this, _navigationStore, _dataBase);
         }
 
-        private CreateManagerViewModel CreateManagerViewModel()
+        public CreateManagerViewModel CreateManagerViewModel()
         {
             return new CreateManagerViewModel(new NavigationService(_navigationStore, ListingViewModel), _dataBase);
         }
 
-        private CreateProductViewModel CreateProductViewModel()
+        public CreateProductViewModel CreateProductViewModel()
         {
             return new CreateProductViewModel(new NavigationService(_navigationStore, ListingViewModel), _dataBase);
         }
 
-        private CreateClientViewModel CreateClientViewModel()
+        public CreateClientViewModel CreateClientViewModel()
         {
             return new CreateClientViewModel(new NavigationService(_navigationStore, ListingViewModel), _dataBase);
+        }
+
+        public EditManagerViewModel EditManagerViewModel()
+        {
+            return new EditManagerViewModel(new NavigationService(_navigationStore, ListingViewModel), _dataBase);
         }
     }
 }

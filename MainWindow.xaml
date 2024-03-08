@@ -29,6 +29,10 @@
             <DataTemplate DataType="{x:Type viewModels:CreateProductViewModel}">
                 <views:CreateProductView/>
             </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:EditManagerViewModel}">
+                <views:EditManagerView/>
+            </DataTemplate>
         </Grid.Resources>
 
         <ContentControl Content="{Binding CurrentViewModel}"/>

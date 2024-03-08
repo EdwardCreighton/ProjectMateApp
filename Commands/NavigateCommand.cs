@@ -4,7 +4,7 @@ namespace ProjectMateApp.Commands
 {
     public class NavigateCommand : BaseCommand
     {
-        private readonly NavigationService _navigationService;
+        protected readonly NavigationService _navigationService;
 
         public NavigateCommand(NavigationService navigationService)
         {

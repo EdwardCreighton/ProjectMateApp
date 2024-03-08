@@ -37,6 +37,18 @@ namespace ProjectMateApp.Models
 
             _managers.Add(manager);
         }
+        public bool Exists(Manager manager)
+        {
+            foreach(var existingManager in _managers)
+            {
+                if (existingManager.Equals(manager))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
 
         public void AddProduct(Product product)
         {

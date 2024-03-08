@@ -2,7 +2,7 @@
 {
     public class Manager
     {
-        public string Name { get; }
+        public string Name { get; set; }
 
         public Manager(string name)
         {

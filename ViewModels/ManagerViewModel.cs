@@ -1,4 +1,5 @@
-﻿using ProjectMateApp.Models;
+﻿using ProjectMateApp.Commands;
+using ProjectMateApp.Models;
 using System.Windows.Input;
 
 namespace ProjectMateApp.ViewModels
@@ -13,6 +14,12 @@ namespace ProjectMateApp.ViewModels
         public ManagerViewModel(Manager manager)
         {
             _manager = manager;
+        }
+
+        public ManagerViewModel(Manager manager, BaseCommand editCommand)
+        {
+            _manager = manager;
+            EditManagerCommand = editCommand;
         }
     }
 }

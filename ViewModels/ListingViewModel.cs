@@ -1,4 +1,5 @@
 ﻿using ProjectMateApp.Services;
+using ProjectMateApp.Stores;
 
 namespace ProjectMateApp.ViewModels
 {
@@ -18,14 +19,16 @@ namespace ProjectMateApp.ViewModels
         public ClientToProductsListViewModel ClientToProductsListViewModel => _clientToProductsListViewModel;
         public StatusToClientsListViewModel StatusToClientsListViewModel => _statusToClientsListViewModel;
 
-        public ListingViewModel(NavigationService toCreateManagerNavigationService,
-                                NavigationService toCreateClientNavigationService,
-                                NavigationService toCreateProductNavigationService,
-                                IDataBase dataBase)
+        public ListingViewModel(App app, NavigationStore navigationStore, IDataBase dataBase)
         {
-            _managersListViewModel = new ManagersListViewModel(toCreateManagerNavigationService, dataBase);
-            _clientsListViewModel = new ClientsListViewModel(toCreateClientNavigationService, dataBase);
-            _productsListViewModel = new ProductsListViewModel(toCreateProductNavigationService, dataBase);
+            _managersListViewModel = new ManagersListViewModel(navigationStore,
+                                                               new NavigationService(navigationStore, app.CreateManagerViewModel),
+                                                               new NavigationService(navigationStore, app.EditManagerViewModel),
+                                                               dataBase);
+            _clientsListViewModel = new ClientsListViewModel(new NavigationService(navigationStore, app.CreateClientViewModel),
+                                                             dataBase);
+            _productsListViewModel = new ProductsListViewModel(new NavigationService(navigationStore, app.CreateProductViewModel),
+                                                               dataBase);
             _managerToClientsListViewModel = new ManagerToClientsListViewModel();
             _clientToProductsListViewModel = new ClientToProductsListViewModel();
             _statusToClientsListViewModel = new StatusToClientsListViewModel();
