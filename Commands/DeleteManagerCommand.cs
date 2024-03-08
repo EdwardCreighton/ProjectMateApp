@@ -1,18 +1,18 @@
-﻿using ProjectMateApp.Models;
-using ProjectMateApp.Services;
+﻿using ProjectMateApp.Services;
+using ProjectMateApp.ViewModels;
 using System.Windows;
 
 namespace ProjectMateApp.Commands
 {
     public class DeleteManagerCommand : BaseCommand
     {
-        private readonly Func<Manager> _getManager;
+        private readonly EditManagerViewModel _editManagerViewModel;
         private readonly NavigationService _toListingNavigationService;
         private readonly IDataBase _dataBase;
 
-        public DeleteManagerCommand(Func<Manager> getManager, NavigationService toListingNavigationService, IDataBase dataBase)
+        public DeleteManagerCommand(EditManagerViewModel editManagerViewModel, NavigationService toListingNavigationService, IDataBase dataBase)
         {
-            _getManager = getManager;
+            _editManagerViewModel = editManagerViewModel;
             _toListingNavigationService = toListingNavigationService;
             _dataBase = dataBase;
         }
@@ -24,7 +24,7 @@ namespace ProjectMateApp.Commands
 
             if (result == MessageBoxResult.Yes)
             {
-                _dataBase.Delete(_getManager());
+                _dataBase.Delete(_editManagerViewModel.Manager);
 
                 MessageBox.Show("Manager was deleted!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 

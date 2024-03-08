@@ -70,9 +70,9 @@ namespace ProjectMateApp.ViewModels
 
         public EditManagerViewModel(NavigationService toListingNavigationService, IDataBase dataBase)
         {
-            Apply = new ApplyManagerChangesCommand(this, () => Manager, toListingNavigationService, dataBase);
+            Apply = new ApplyManagerChangesCommand(this, toListingNavigationService, dataBase);
             Cancel = new NavigateCommand(toListingNavigationService);
-			Delete = new DeleteManagerCommand(() => Manager, toListingNavigationService, dataBase);
+			Delete = new DeleteManagerCommand(this, toListingNavigationService, dataBase);
         }
     }
 }
