@@ -75,6 +75,12 @@
                 Content="Cancel"
                 Style="{StaticResource FormButton}"
                 Command="{Binding Cancel}"/>
+            <Button
+                Content="Delete"
+                Style="{StaticResource FormButton}"
+                Background="DarkRed"
+                Foreground="White"
+                Command="{Binding Delete}"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -41,7 +41,7 @@ namespace ProjectMateApp.Commands
 
                 NameValidator.Validate(name);
 
-                _dataBase.AddClient(new Client(name,
+                _dataBase.Add(new Client(name,
                                                (ClientStatus)_createClientViewModel.SelectedStatusIndex,
                                                _dataBase.Managers.ElementAt(_createClientViewModel.SelectedManagerIndex)));
 

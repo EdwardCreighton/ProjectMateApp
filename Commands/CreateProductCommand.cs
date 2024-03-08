@@ -40,7 +40,7 @@ namespace ProjectMateApp.Commands
                                           _createProductViewModel.SubscriptionExpirationDate);
             try
             {
-                _dataBase.AddProduct(product);
+                _dataBase.Add(product);
 
                 MessageBox.Show("Added new product successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 

@@ -20,12 +20,7 @@ namespace ProjectMateApp.Models
             _clients = new List<Client>(0);
         }
 
-        public IEnumerable<Manager> GetManagers()
-        {
-            return _managers;
-        }
-
-        public void AddManager(Manager manager)
+        public void Add(Manager manager)
         {
             foreach (var existingManager in _managers)
             {
@@ -37,6 +32,12 @@ namespace ProjectMateApp.Models
 
             _managers.Add(manager);
         }
+
+        public void Delete(Manager manager)
+        {
+            _managers.Remove(manager);
+        }
+
         public bool Exists(Manager manager)
         {
             foreach(var existingManager in _managers)
@@ -50,7 +51,7 @@ namespace ProjectMateApp.Models
             return false;
         }
 
-        public void AddProduct(Product product)
+        public void Add(Product product)
         {
             foreach (var existingProduct in _products)
             {
@@ -63,7 +64,7 @@ namespace ProjectMateApp.Models
             _products.Add(product);
         }
 
-        public void AddClient(Client client)
+        public void Add(Client client)
         {
             foreach(var existingClient in _clients)
             {

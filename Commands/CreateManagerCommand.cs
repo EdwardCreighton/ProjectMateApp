@@ -41,7 +41,7 @@ namespace ProjectMateApp.Commands
 
                 NameValidator.Validate(name);
 
-                _dataBase.AddManager(new Manager(name));
+                _dataBase.Add(new Manager(name));
 
                 MessageBox.Show("Successfully added new manager.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 

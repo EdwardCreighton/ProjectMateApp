@@ -66,11 +66,13 @@ namespace ProjectMateApp.ViewModels
 
 		public ICommand Apply { get; }
         public ICommand Cancel { get; }
+        public ICommand Delete { get; }
 
         public EditManagerViewModel(NavigationService toListingNavigationService, IDataBase dataBase)
         {
             Apply = new ApplyManagerChangesCommand(this, () => Manager, toListingNavigationService, dataBase);
             Cancel = new NavigateCommand(toListingNavigationService);
+			Delete = new DeleteManagerCommand(() => Manager, toListingNavigationService, dataBase);
         }
     }
 }
