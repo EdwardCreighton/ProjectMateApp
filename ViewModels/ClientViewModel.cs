@@ -14,7 +14,7 @@ namespace ProjectMateApp.ViewModels
                 return _client.Status switch
                 {
                     ClientStatus.DefaultClient => "Default",
-                    ClientStatus.ImportantClient => "Default"
+                    ClientStatus.ImportantClient => "VIP"
                 };
             }
         }
