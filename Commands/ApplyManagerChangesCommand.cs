@@ -10,17 +10,17 @@ namespace ProjectMateApp.Commands
     public class ApplyManagerChangesCommand : BaseCommand
     {
         private readonly EditManagerViewModel _editManagerViewModel;
-        private readonly Func<Manager> _manager;
+        private readonly Func<Manager> _getManager;
         private readonly NavigationService _toListingNavigationService;
         private readonly IDataBase _dataBase;
 
         public ApplyManagerChangesCommand(EditManagerViewModel editManagerViewModel,
-                                          Func<Manager> manager,
+                                          Func<Manager> getManager,
                                           NavigationService toListingNavigationService,
                                           IDataBase dataBase)
         {
             _editManagerViewModel = editManagerViewModel;
-            _manager = manager;
+            _getManager = getManager;
             _toListingNavigationService = toListingNavigationService;
             _dataBase = dataBase;
 
@@ -45,7 +45,7 @@ namespace ProjectMateApp.Commands
                 NameValidator.Validate(name);
 
                 Manager temp = new Manager(name);
-                Manager savedManager = _manager.Invoke();
+                Manager existingManager = _getManager.Invoke();
 
                 if (_dataBase.Exists(temp))
                 {
@@ -53,8 +53,8 @@ namespace ProjectMateApp.Commands
                 }
                 else
                 {
-                    savedManager.Name = name;
-                    MessageBox.Show("Successfully renamed manager.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    existingManager.Name = name;
+                    MessageBox.Show("Successfully renamed getManager.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     _toListingNavigationService.Navigate();
                 }
             }
