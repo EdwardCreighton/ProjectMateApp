@@ -64,6 +64,24 @@ namespace ProjectMateApp.Models
             _products.Add(product);
         }
 
+        public void Delete(Product product)
+        {
+            _products.Remove(product);
+        }
+
+        public bool Exists(Product product)
+        {
+            foreach (var existingProduct in _products)
+            {
+                if (existingProduct.Equals(product))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void Add(Client client)
         {
             foreach(var existingClient in _clients)
@@ -75,6 +93,24 @@ namespace ProjectMateApp.Models
             }
 
             _clients.Add(client);
+        }
+
+        public void Delete(Client client)
+        {
+            _clients.Remove(client);
+        }
+
+        public bool Exists(Client client)
+        {
+            foreach (var existingClient in _clients)
+            {
+                if (existingClient.Equals(client))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

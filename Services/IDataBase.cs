@@ -13,7 +13,11 @@ namespace ProjectMateApp.Services
         public bool Exists(Manager manager);
 
         public void Add(Product product);
+        public void Delete(Product product);
+        public bool Exists(Product product);
 
         public void Add(Client client);
+        public void Delete(Client client);
+        public bool Exists(Client client);
     }
 }
