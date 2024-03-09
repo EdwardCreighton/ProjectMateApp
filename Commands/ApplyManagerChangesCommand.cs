@@ -50,7 +50,7 @@ namespace ProjectMateApp.Commands
                 else
                 {
                     _editManagerViewModel.Manager.Name = name;
-                    MessageBox.Show("Successfully renamed getManager.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Successfully renamed manager.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     _toListingNavigationService.Navigate();
                 }
             }
