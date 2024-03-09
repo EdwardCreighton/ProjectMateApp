@@ -10,7 +10,9 @@ namespace ProjectMateApp.Commands
         private readonly NavigationStore _navigationStore;
         private readonly Manager _manager;
 
-        public EditManagerNavigateCommand(NavigationStore navigationStore, NavigationService toEditManagerNavigationService, Manager manager) : base(toEditManagerNavigationService)
+        public EditManagerNavigateCommand(NavigationStore navigationStore,
+                                          NavigationService toEditManagerNavigationService,
+                                          Manager manager) : base(toEditManagerNavigationService)
         {
             _navigationStore = navigationStore;
             _manager = manager;
