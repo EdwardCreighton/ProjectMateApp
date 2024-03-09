@@ -15,7 +15,10 @@ namespace ProjectMateApp.ViewModels
 
         public ICommand CreateManager { get; }
 
-        public ManagersListViewModel(NavigationStore navigationStore, NavigationService toCreateManagerNavigationService, NavigationService toEditManagerNavigationService, IDataBase dataBase)
+        public ManagersListViewModel(NavigationStore navigationStore,
+                                     NavigationService toCreateManagerNavigationService,
+                                     NavigationService toEditManagerNavigationService,
+                                     IDataBase dataBase)
         {
             _managers = new ObservableCollection<ManagerViewModel>();
 
