@@ -1,4 +1,6 @@
-﻿using ProjectMateApp.Models;
+﻿using ProjectMateApp.Commands;
+using ProjectMateApp.Models;
+using System.Windows.Input;
 
 namespace ProjectMateApp.ViewModels
 {
@@ -20,9 +22,17 @@ namespace ProjectMateApp.ViewModels
         }
         public string ManagerName => _client.Manager.Name;
 
+        public ICommand Edit { get; }
+
         public ClientViewModel(Client client)
         {
             _client = client;
+        }
+
+        public ClientViewModel(Client client, BaseCommand editCommand)
+        {
+            _client = client;
+            Edit = editCommand;
         }
     }
 }

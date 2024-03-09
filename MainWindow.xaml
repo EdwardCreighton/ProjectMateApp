@@ -33,6 +33,10 @@
             <DataTemplate DataType="{x:Type viewModels:EditManagerViewModel}">
                 <views:EditManagerView/>
             </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModels:EditClientViewModel}">
+                <views:EditClientView/>
+            </DataTemplate>
         </Grid.Resources>
 
         <ContentControl Content="{Binding CurrentViewModel}"/>

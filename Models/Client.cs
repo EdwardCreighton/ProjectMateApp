@@ -3,9 +3,9 @@ namespace ProjectMateApp.Models
 {
     public class Client
     {
-        public string Name { get; }
-        public ClientStatus Status { get; }
-        public Manager Manager { get; }
+        public string Name { get; set; }
+        public ClientStatus Status { get; set; }
+        public Manager Manager { get; set; }
         public List<Product> BoughtProducts { get; }
 
         public Client(string name, ClientStatus status, Manager manager)

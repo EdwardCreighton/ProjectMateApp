@@ -25,10 +25,15 @@ namespace ProjectMateApp.ViewModels
                                                                new NavigationService(navigationStore, app.CreateManagerViewModel),
                                                                new NavigationService(navigationStore, app.EditManagerViewModel),
                                                                dataBase);
-            _clientsListViewModel = new ClientsListViewModel(new NavigationService(navigationStore, app.CreateClientViewModel),
+
+            _clientsListViewModel = new ClientsListViewModel(navigationStore,
+                                                             new NavigationService(navigationStore, app.CreateClientViewModel),
+                                                             new NavigationService(navigationStore, app.EditClientViewModel),
                                                              dataBase);
+
             _productsListViewModel = new ProductsListViewModel(new NavigationService(navigationStore, app.CreateProductViewModel),
                                                                dataBase);
+
             _managerToClientsListViewModel = new ManagerToClientsListViewModel();
             _clientToProductsListViewModel = new ClientToProductsListViewModel();
             _statusToClientsListViewModel = new StatusToClientsListViewModel();
