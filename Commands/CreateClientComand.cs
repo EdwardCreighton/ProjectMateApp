@@ -45,7 +45,7 @@ namespace ProjectMateApp.Commands
                                                (ClientStatus)_createClientViewModel.SelectedStatusIndex,
                                                _dataBase.Managers.ElementAt(_createClientViewModel.SelectedManagerIndex)));
 
-                MessageBox.Show("Successfully added new _client.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Successfully added new client.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 _toListingNavigationService.Navigate();
             }
