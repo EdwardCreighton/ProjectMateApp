@@ -2,10 +2,10 @@
 {
     public class Product
     {
-        public string Name { get; }
-        public int Price { get; }
-        public ProductType Type { get; }
-        public DateTime SubscriptionExpirationDate { get; }
+        public string Name { get; set; }
+        public int Price { get; set; }
+        public ProductType Type { get; set; }
+        public DateTime SubscriptionExpirationDate { get; set; }
 
         public Product(string name, int price, ProductType type, DateTime subscriptionExpirationDate)
         {

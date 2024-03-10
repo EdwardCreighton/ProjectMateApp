@@ -13,13 +13,13 @@ namespace ProjectMateApp.ViewModels
 
         public ICommand CreateProduct { get; }
 
-        public ProductsListViewModel(NavigationService toCreateProductNavigationService, IDataBase dataBase)
+        public ProductsListViewModel(Stores.NavigationStore navigationStore, NavigationService toCreateProductNavigationService, NavigationService toEditProductNavigationService, IDataBase dataBase)
         {
             _products = new ObservableCollection<ProductViewModel>();
 
             foreach (var product in dataBase.Products)
             {
-                _products.Add(new ProductViewModel(product));
+                _products.Add(new ProductViewModel(navigationStore, toEditProductNavigationService, product));
             }
 
             CreateProduct = new NavigateCommand(toCreateProductNavigationService);

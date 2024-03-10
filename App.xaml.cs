@@ -63,5 +63,10 @@ namespace ProjectMateApp
         {
             return new EditClientViewModel(new NavigationService(_navigationStore, ListingViewModel), _dataBase);
         }
+
+        public EditProductViewModel EditProductViewModel()
+        {
+            return new EditProductViewModel(new NavigationService(_navigationStore, ListingViewModel), _dataBase);
+        }
     }
 }

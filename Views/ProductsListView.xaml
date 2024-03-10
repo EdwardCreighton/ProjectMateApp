@@ -56,7 +56,7 @@
                     <GridViewColumn Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Edit" MinWidth="80"/>
+                                <Button Content="Edit" MinWidth="80" Command="{Binding Edit}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

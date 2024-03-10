@@ -1,4 +1,8 @@
-﻿using ProjectMateApp.Models;
+﻿using ProjectMateApp.Commands;
+using ProjectMateApp.Models;
+using ProjectMateApp.Services;
+using ProjectMateApp.Stores;
+using System.Windows.Input;
 
 namespace ProjectMateApp.ViewModels
 {
@@ -20,10 +24,12 @@ namespace ProjectMateApp.ViewModels
             }
         }
         public string SubscriptionExpirationDate => _product.Type == ProductType.Subscription ? _product.SubscriptionExpirationDate.ToString("d") : string.Empty;
+        public ICommand Edit { get; }
 
-        public ProductViewModel(Product product)
+        public ProductViewModel(NavigationStore navigationStore, NavigationService toEditProductNavigationService, Product product)
         {
             _product = product;
+            Edit = new EditProductNavigateCommand(navigationStore, toEditProductNavigationService, _product);
         }
     }
 }
