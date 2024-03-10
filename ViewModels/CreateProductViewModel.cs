@@ -21,8 +21,8 @@ namespace ProjectMateApp.ViewModels
 			}
 		}
 
-		private int _price;
-		public int Price
+		private string _price;
+		public string Price
 		{
 			get
 			{
