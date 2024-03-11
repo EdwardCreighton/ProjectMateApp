@@ -17,7 +17,7 @@ namespace ProjectMateApp
         public App()
         {
             _navigationStore = new NavigationStore();
-            _dataBase = new DataBaseModel();
+            _dataBase = new SqlDataBase();
         }
 
         protected override void OnStartup(StartupEventArgs e)
